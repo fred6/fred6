@@ -3,7 +3,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>mind death</title>
-<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="/css/style.css" rel="stylesheet" type="text/css"/>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     jax: ["input/TeX", "output/HTML-CSS"],
@@ -23,8 +23,9 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 <![endif]-->
 </head>
 <body>
+<div id="container">
 <h1 id="page_title"><a href="index.html">mind death</a></h1>
-<div id="container"><div id="page">
+<div id="page">
   <header>infonotes</header>
   <div><h1>Information Theory Notes</h1>
 
@@ -46,7 +47,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 
 <h2><a id="notes"> </a> Notes</h2>
 
-<p>Throughout I use the shorthand $p(x)$ and $p(y)$ to stand in for more precise notation like $P(X = x)$ and $P(Y = y)$ or $p<em>(X)$ and $p</em>(Y)$. Do not be alarmed. If I leave out the qualifier under a summation, I&#39;m implying that it ranges over all of the values the random variable can take on.</p>
+<p>Throughout I use the shorthand $p(x)$ and $p(y)$ to stand in for more precise notation like $P(X = x)$ and $P(Y = y)$ or $p_X(x)$ and $p_Y(y)$. Do not be alarmed. If I leave out the qualifier under a summation, I&#39;m implying that it ranges over all of the values the random variable can take on.</p>
 
 <h2><a id="entropy"> </a> Entropy</h2>
 
@@ -55,6 +56,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 <ul>
 <li>&quot;The average number of bits needed to optimally encode independent draws of the discrete variable...&quot; <a href="#ref1">[1]</a></li>
 <li>&quot;...a measure of the average uncertainty in the random variable.&quot; <a href="#ref2">[2]</a> (p. 5)</li>
+<li>&quot;...a measure of the average information content one is missing when one does not know the value of the random variable... Entropy, in an information sense, is a measure of unpredictability.&quot; <a href="#ref3">[3]</a></li>
 </ul>
 
 <h3>Def. 1a</h3>
@@ -89,13 +91,21 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 
 <p>It&#39;s less clear how this intuitive picture lines up when we start considering distributions that don&#39;t involve inverse powers of two (how many bits do we need to represent an outcome that happens 1/7th of the time? The ansewr is 2.80735492, but what does that mean exactly? What about an outcome that happens $ \frac{1}{\pi}$ of the time?), but these examples are good for illustrating that there is some sense in which the entropy is the smallest number of bits needed to describe the information, on average.</p>
 
+<h2><a id="relent"> </a> Relative entropy</h2>
+
+<p>After description, tie it all together with a pretties:</p>
+
+<p><img src="/images/entropy_venn_wiki.png" alt="Relationship between joint, conditional, relative entropies and mutual information"></p>
+
 <h2><a id="refs"> </a> References</h2>
 
 <ul>
 <li><a id="ref1"> </a> [1] T. Schreiber. &quot;Measuring Information Transfer&quot;.</li>
 <li><a id="ref2"> </a> [2] T. Cover &amp; J. Thomas. <em>Elements of Information Theory</em>. 2nd edition.</li>
+<li><a id="ref3"> </a> [3] &quot;Entropy (information theory)&quot;. <a href="http://en.wikipedia.org/wiki/Entropy_(information_theory)">http://en.wikipedia.org/wiki/Entropy_(information_theory)</a></li>
 </ul>
 </div>
 </div>
+
 </div>
 </body></html>

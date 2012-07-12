@@ -15,7 +15,7 @@
 You're gonna need some probability theory. Probability distributions, conditional probability, Bayes' theorem (but I repeat myself, ah ah ah), marginal distributions, random variables. I reference expectation of a random variable, but I guess you could ignore those bits. You should know summation notation and how logarithms work, too.
 
 ## <a id="notes"> </a> Notes
-Throughout I use the shorthand $p(x)$ and $p(y)$ to stand in for more precise notation like $P(X = x)$ and $P(Y = y)$ or $p_(X)$ and $p_(Y)$. Do not be alarmed. If I leave out the qualifier under a summation, I'm implying that it ranges over all of the values the random variable can take on.
+Throughout I use the shorthand $p(x)$ and $p(y)$ to stand in for more precise notation like $P(X = x)$ and $P(Y = y)$ or $p_X(x)$ and $p_Y(y)$. Do not be alarmed. If I leave out the qualifier under a summation, I'm implying that it ranges over all of the values the random variable can take on.
 
 ## <a id="entropy"> </a> Entropy
 ### In words
@@ -53,6 +53,11 @@ Since there are four outcomes, we could choose to represent this information sou
 
 It's less clear how this intuitive picture lines up when we start considering distributions that don't involve inverse powers of two (how many bits do we need to represent an outcome that happens 1/7th of the time? The ansewr is 2.80735492, but what does that mean exactly? What about an outcome that happens $ \frac{1}{\pi}$ of the time?), but these examples are good for illustrating that there is some sense in which the entropy is the smallest number of bits needed to describe the information, on average.
 
+## <a id="relent"> </a> Relative entropy
+
+After description, tie it all together with a pretties:
+
+![Relationship between joint, conditional, relative entropies and mutual information](/images/entropy_venn_wiki.png)
 
 ## <a id="refs"> </a> References
 

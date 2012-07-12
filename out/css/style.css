@@ -1,0 +1,27 @@
+
+body {
+    background-color: #fff;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, Tahoma, sans-serif;
+    color: #000;
+}
+
+body a {
+    color: #1857a0;
+}
+
+#page_title {
+    padding: 5px;
+    background-color: #ff0000;
+    font-size: 1em; 
+    font-weight: normal;
+    text-align: center;
+}
+
+#page_title a {
+  color: #fff;
+}
+
+#container {
+    margin: 0 auto;
+    width: 35em;
+}
