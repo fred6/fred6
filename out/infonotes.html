@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>mind death</title>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    extensions: ["tex2jax.js"],
+    tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$','$$'] ]
+    },
+"HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+<h1 id="page_title"><a href="index.html">mind death</a></h1>
+<div id="container"><div id="page">
+  <header>infonotes</header>
+  <div><h1>Information Theory Notes</h1>
+
+<ul>
+<li><a href="#prereqs">Prerequisites</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#entropy">Entropy</a></li>
+<li><a href="#jointent">Joint entropy</a></li>
+<li><a href="#condent">Conditional entropy</a></li>
+<li><a href="#chainrule">Chain rule</a></li>
+<li><a href="#relent">Relative entropy/Kullback entropy/Kullback-Leibler divergence</a></li>
+<li><a href="#mutinfo">Mutual information</a></li>
+<li><a href="#refs">References</a></li>
+</ul>
+
+<h2><a id="prereqs"> </a> Prerequisites</h2>
+
+<p>You&#39;re gonna need some probability theory. Probability distributions, conditional probability, Bayes&#39; theorem (but I repeat myself, ah ah ah), marginal distributions, random variables. I reference expectation of a random variable, but I guess you could ignore those bits. You should know summation notation and how logarithms work, too.</p>
+
+<h2><a id="notes"> </a> Notes</h2>
+
+<p>Throughout I use the shorthand $p(x)$ and $p(y)$ to stand in for more precise notation like $P(X = x)$ and $P(Y = y)$ or $p<em>(X)$ and $p</em>(Y)$. Do not be alarmed. If I leave out the qualifier under a summation, I&#39;m implying that it ranges over all of the values the random variable can take on.</p>
+
+<h2><a id="entropy"> </a> Entropy</h2>
+
+<h3>In words</h3>
+
+<ul>
+<li>&quot;The average number of bits needed to optimally encode independent draws of the discrete variable...&quot; <a href="#ref1">[1]</a></li>
+<li>&quot;...a measure of the average uncertainty in the random variable.&quot; <a href="#ref2">[2]</a> (p. 5)</li>
+</ul>
+
+<h3>Def. 1a</h3>
+
+<p>$$H(X) = - \sum_x p(x) \log p(x)$$</p>
+
+<p>Quick sanity check: why does this definition have an ugly negative sign out in front? Can we get rid of it? No, actually. A probability distribution takes values between 0 and 1, so when we take the log of values between 0 and 1, we get <em>negative numbers</em>. So unless you want your nice new thingamabob to spit out negative numbers, we have to counteract with a negative sign out front.</p>
+
+<p>Due to the magic of logarithms, we can rewrite as this:</p>
+
+<h3>Def. 1b</h3>
+
+<p>$$H(X) = \sum_x p(x) \log \frac{1}{p(x)}$$</p>
+
+<p>Now, hopefully you know that the expectation of a random variable is the weighted sum of the values the variable can take on. If you squint hard enough, you will be able to see that the definitions we have just provided for entropy can be restated in terms of expectation:</p>
+
+<h3>Def. 1c</h3>
+
+<p>$$H(X) = \mathbb{E}[\log \frac{1}{p(X)}]$$</p>
+
+<p>Here&#39;s a side of intuition to go along with those symbols. Compare these 2 probability distributions: $X$ can take on 4 values, each equally likely. Then</p>
+
+<p>$$H(X) = 4 * \frac{1}{4} \log 4 = \log 4 = 2$$</p>
+
+<p>The total entropy is 2, but notice how we got there: 1/4 * 2 + 1/4 * 2 + 1/4 * 2 + 1/4 * 2. In other words, we represent each outcome with two bits: 00, 01, 10, 11. Each outcome is two bits, so on average we use two bits to describe this information.</p>
+
+<p>Now consider a variable $Y$ with a distribution $[1/2, 1/4, 1/8, 1/8]$. Now the entropy calculation is:</p>
+
+<p>$$H(Y) = \frac{1}{2} \log 2 + \frac{1}{4} \log 4 + 2 * \frac{1}{8} \log 8 = \frac{1}{2} + \frac{1}{2} + \frac{3}{4} = \frac{7}{4}$$.</p>
+
+<p>Since there are four outcomes, we could choose to represent this information source with the same coding scheme (two bits each), but there&#39;s a way to save a bit on average. The $\frac{1}{2}$ outcome gets &quot;0&quot;, the $\frac{1}{4}$ outcome gets &quot;10&quot;, and the $\frac{1}{8}$ outcomes get &quot;110&quot; and &quot;111&quot;. Half of the time we use 1 bit, one-fourth of the time we use 2 bits, and one-fourth of the time we use 3 bits. This should look familiar, because it lines up exactly with how entropy is calculated. (1 = log 2, 2 = log 4, 3 = log 8)</p>
+
+<p>It&#39;s less clear how this intuitive picture lines up when we start considering distributions that don&#39;t involve inverse powers of two (how many bits do we need to represent an outcome that happens 1/7th of the time? The ansewr is 2.80735492, but what does that mean exactly? What about an outcome that happens $ \frac{1}{\pi}$ of the time?), but these examples are good for illustrating that there is some sense in which the entropy is the smallest number of bits needed to describe the information, on average.</p>
+
+<h2><a id="refs"> </a> References</h2>
+
+<ul>
+<li><a id="ref1"> </a> [1] T. Schreiber. &quot;Measuring Information Transfer&quot;.</li>
+<li><a id="ref2"> </a> [2] T. Cover &amp; J. Thomas. <em>Elements of Information Theory</em>. 2nd edition.</li>
+</ul>
+</div>
+</div>
+</div>
+</body></html>
