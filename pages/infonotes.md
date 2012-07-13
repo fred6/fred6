@@ -54,6 +54,8 @@ Since there are four outcomes, we could choose to represent this information sou
 It's less clear how this intuitive picture lines up when we start considering distributions that don't involve inverse powers of two (how many bits do we need to represent an outcome that happens 1/7th of the time? The ansewr is 2.80735492, but what does that mean exactly? What about an outcome that happens $ \frac{1}{\pi}$ of the time?), but these examples are good for illustrating that there is some sense in which the entropy is the smallest number of bits needed to describe the information, on average.
 
 ## <a id="relent"> </a> Relative entropy
+### In words
+  - "The relative entropy D(p||q) is a measure of the inefficiency of assuming that the distribution is q when the true distribution is p. For example, if we knew the true distribution p of the random variable, we could construct a code with average description length H(p). If, instead, we used the code for distribution q, we would need H(p) + D(p||q) bits on the average to describe the random variable." [[2]](#ref2) (p. 19)
 
 After description, tie it all together with a pretties:
 
