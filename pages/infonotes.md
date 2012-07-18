@@ -57,6 +57,16 @@ It's less clear how this intuitive picture lines up when we start considering di
 ### In words
   - "The relative entropy D(p||q) is a measure of the inefficiency of assuming that the distribution is q when the true distribution is p. For example, if we knew the true distribution p of the random variable, we could construct a code with average description length H(p). If, instead, we used the code for distribution q, we would need H(p) + D(p||q) bits on the average to describe the random variable." [[2]](#ref2) (p. 19)
 
+### Def.
+
+$$D(p || q) = \sum p(x) \log \frac{1}{q(x) / p(x)}$$
+
+### Some notes
+
+Relative entropy blows up if there is an outcome $x$ such that $p(x) > 0$ but $q(x) = 0$. This seems to be a defect in the measure, unless I haven't yet understood why it should be the case.
+
+In some sense, relative entropy can be thought of a way of measuring the "distance" between two distributions. It's not a true metric, however, since it fails symmetricity and the triangle inequality. Turns out positive definiteness is pretty useful on its own, though.
+
 After description, tie it all together with a pretties:
 
 ![Relationship between joint, conditional, relative entropies and mutual information](/images/entropy_venn_wiki.png)
