@@ -2,7 +2,7 @@
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>mind death</title>
+<title>{{ title }}</title>
 <link href="/css/style.css" rel="stylesheet" type="text/css"/>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -24,7 +24,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 </head>
 <body>
 <div id="container">
-<h1 id="page_title"><a href="index.html">mind death</a></h1>
+<h1 id="page_title"><a href="index.html">{{ title }}</a></h1>
 {{ content }}
 </div>
 </body></html>
