@@ -19,9 +19,9 @@ Throughout I use the shorthand $p(x)$ and $p(y)$ to stand in for more precise no
 
 ## <a id="entropy"> </a> Entropy
 ### In words
-  - "The average number of bits needed to optimally encode independent draws of the discrete variable..." [[1]](#ref1)
-  - "...a measure of the average uncertainty in the random variable." [[2]](#ref2) (p. 5)
-  - "...a measure of the average information content one is missing when one does not know the value of the random variable... Entropy, in an information sense, is a measure of unpredictability." [[3]](#ref3)
+  - "The average number of bits needed to optimally encode independent draws of the discrete variable..." [^1]
+  - "...a measure of the average uncertainty in the random variable." [^2]
+  - "...a measure of the average information content one is missing when one does not know the value of the random variable... Entropy, in an information sense, is a measure of unpredictability." [^3]
 
 ### Def. 1a
 $$H(X) = - \sum_x p(x) \log p(x)$$
@@ -55,7 +55,7 @@ It's less clear how this intuitive picture lines up when we start considering di
 
 ## <a id="relent"> </a> Relative entropy
 ### In words
-  - "The relative entropy D(p||q) is a measure of the inefficiency of assuming that the distribution is q when the true distribution is p. For example, if we knew the true distribution p of the random variable, we could construct a code with average description length H(p). If, instead, we used the code for distribution q, we would need H(p) + D(p||q) bits on the average to describe the random variable." [[2]](#ref2) (p. 19)
+  - "The relative entropy D(p||q) is a measure of the inefficiency of assuming that the distribution is q when the true distribution is p. For example, if we knew the true distribution p of the random variable, we could construct a code with average description length H(p). If, instead, we used the code for distribution q, we would need H(p) + D(p||q) bits on the average to describe the random variable." [^2] (p. 19)
 
 ### Def.
 
@@ -73,6 +73,6 @@ After description, tie it all together with a pretties:
 
 ## <a id="refs"> </a> References
 
-  - <a id="ref1"> </a> [1] T. Schreiber. "Measuring Information Transfer".
-  - <a id="ref2"> </a> [2] T. Cover & J. Thomas. *Elements of Information Theory*. 2nd edition.
-  - <a id="ref3"> </a> [3] "Entropy (information theory)". <http://en.wikipedia.org/wiki/Entropy_(information_theory)>
+  [^1]: T. Schreiber. "Measuring Information Transfer".
+  [^2]: T. Cover & J. Thomas. *Elements of Information Theory*. 2nd edition.
+  [^3]: "Entropy (information theory)". <http://en.wikipedia.org/wiki/Entropy_(information_theory)>
