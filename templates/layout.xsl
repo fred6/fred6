@@ -67,8 +67,11 @@ MathJax.Hub.Config({
                             <xsl:attribute name="href">
                                 <xsl:value-of select="'index.html'"/>
                             </xsl:attribute>
-                            <xsl:value-of select="/root/title"/>
+                            <xsl:value-of select="/root/site_title"/>
                         </a>
+                        <xsl:if test="/root/page_title">
+                            <xsl:value-of select="concat(' - ', /root/page_title)"/>
+                        </xsl:if>
                     </h1>
                     <xsl:copy-of select="/root/content/*"/>
                 </div>
@@ -77,4 +80,3 @@ MathJax.Hub.Config({
         </html>
     </xsl:template>
 </xsl:stylesheet>
-
