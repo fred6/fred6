@@ -70,7 +70,7 @@ MathJax.Hub.Config({
                             <xsl:value-of select="/root/site_title"/>
                         </a>
                         <xsl:if test="/root/page_title">
-                            <xsl:value-of select="concat(' - ', /root/page_title)"/>
+                            <xsl:value-of select="concat(' > ', /root/page_title)"/>
                         </xsl:if>
                     </h1>
                     <xsl:copy-of select="/root/content/*"/>
