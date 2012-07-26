@@ -33,8 +33,8 @@ MathJax.Hub.Config({
     jax: ["input/TeX", "output/HTML-CSS"],
     extensions: ["tex2jax.js"],
     tex2jax: {
-        inlineMath: [ ['$', '$'] ],
-        displayMath: [ ['$$','$$'] ]
+        inlineMath: [ ['\\(', '\\)'] ],
+        displayMath: [ ['\\[','\\]'] ]
     },
 "HTML-CSS": { availableFonts: ["TeX"] }
 });
