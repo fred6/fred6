@@ -37,7 +37,7 @@ Now, hopefully you know that the expectation of a random variable is the weighte
 
 ### Def. 1c
 
-$$H(X) = \mathbb{E}\[\log \frac{1}{p(X)}\]$$
+$$H(X) = \mathbb{E}[\log \frac{1}{p(X)}]$$
 
 Here's a side of intuition to go along with those symbols. Compare these 2 probability distributions: $X$ can take on 4 values, each equally likely. Then
 
@@ -45,7 +45,7 @@ $$H(X) = 4 * \frac{1}{4} \log 4 = \log 4 = 2$$
 
 The total entropy is 2, but notice how we got there: 1/4 * 2 + 1/4 * 2 + 1/4 * 2 + 1/4 * 2. In other words, we represent each outcome with two bits: 00, 01, 10, 11. Each outcome is two bits, so on average we use two bits to describe this information.
 
-Now consider a variable $Y$ with a distribution $\[1/2, 1/4, 1/8, 1/8\]$. Now the entropy calculation is:
+Now consider a variable $Y$ with a distribution $[1/2, 1/4, 1/8, 1/8]$. Now the entropy calculation is:
 
 $$H(Y) = \frac{1}{2} \log 2 + \frac{1}{4} \log 4 + 2 * \frac{1}{8} \log 8 = \frac{1}{2} + \frac{1}{2} + \frac{3}{4} = \frac{7}{4}$$.
 
