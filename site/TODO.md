@@ -5,5 +5,4 @@
  - tags/categories for content?
  - separate the log content to a separate site section and possibly sub domain.
  - amazon s3 for content hosting?
- - navigation.
  - FAVICON
