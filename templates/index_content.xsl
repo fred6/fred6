@@ -27,7 +27,7 @@
                         <li>
                             <a>
                                 <xsl:attribute name="href">
-                                    <xsl:value-of select="concat(name, '.html')"/>
+                                    <xsl:value-of select="concat(path, name, '.html')"/>
                                 </xsl:attribute>
                                 <xsl:value-of select="name"/>
                             </a>
