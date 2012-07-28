@@ -7,7 +7,7 @@
                 <xsl:value-of select="'index'"/>
             </xsl:attribute>
             <ul>
-                <xsl:for-each select="/pages/page">
+                <xsl:for-each select="/root/pages/page">
                     <li>
                         <a>
                             <xsl:attribute name="href">
@@ -18,6 +18,23 @@
                     </li>
                 </xsl:for-each>
             </ul>
+            <xsl:for-each select="/root/notes | /root/blather">
+                <h1>
+                    <xsl:value-of select="name(.)"/>
+                </h1>
+                <ul>
+                    <xsl:for-each select="pages/page">
+                        <li>
+                            <a>
+                                <xsl:attribute name="href">
+                                    <xsl:value-of select="concat(name, '.html')"/>
+                                </xsl:attribute>
+                                <xsl:value-of select="name"/>
+                            </a>
+                        </li>
+                    </xsl:for-each>
+                </ul>
+            </xsl:for-each>
         </div>
     </xsl:template>
 </xsl:stylesheet>
