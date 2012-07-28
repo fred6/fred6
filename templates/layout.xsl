@@ -71,7 +71,7 @@ MathJax.Hub.Config({
                         </xsl:attribute>
                         <a>
                             <xsl:attribute name="href">
-                                <xsl:value-of select="'index.html'"/>
+                                <xsl:value-of select="'/index.html'"/>
                             </xsl:attribute>
                             <xsl:value-of select="/root/site_title"/>
                         </a>
