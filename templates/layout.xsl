@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" doctype-system="about:legacy-compat" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
+
+    <xsl:template name="format-page_path">
+        <xsl:param name="path"/>
+        <xsl:if test="$path != ''">
+            <xsl:value-of select="concat(' > ', substring-before($path, '/'))"/>
+            <xsl:call-template name="format-page_path">
+                <xsl:with-param name="path" select="substring-after($path, '/')"/>
+            </xsl:call-template>
+        </xsl:if>
+
+    </xsl:template>
+
     <xsl:template match="/">
         <html>
             <head>
@@ -76,6 +88,9 @@ MathJax.Hub.Config({
                             <xsl:value-of select="/root/site_title"/>
                         </a>
                         <xsl:if test="/root/page_title and /root/page_title != 'index'">
+                            <xsl:call-template name="format-page_path">
+                                <xsl:with-param name="path" select="/root/page_path"/>
+                            </xsl:call-template>
                             <xsl:value-of select="concat(' > ', /root/page_title)"/>
                         </xsl:if>
                     </h1>
