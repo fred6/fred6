@@ -6,9 +6,6 @@
             <xsl:attribute name="id">
                 <xsl:value-of select="'page'"/>
             </xsl:attribute>
-            <header>
-                <xsl:value-of select="/page/name"/>
-            </header>
             <div>
                 <xsl:value-of disable-output-escaping="yes" select="/page/content"/>
             </div>
