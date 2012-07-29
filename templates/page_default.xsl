@@ -6,14 +6,6 @@
             <xsl:attribute name="id">
                 <xsl:value-of select="'page'"/>
             </xsl:attribute>
-            <xsl:if test="/page/path = 'blather/'">
-                <div>
-                    <xsl:attribute name="id">
-                        <xsl:text>desc</xsl:text>
-                    </xsl:attribute>
-                    <xsl:text>blather - quasi-daily linguistic secretions. Vital information for your everyday life.</xsl:text>
-                </div>
-            </xsl:if>
             <div>
                 <xsl:value-of disable-output-escaping="yes" select="/page/content"/>
             </div>
