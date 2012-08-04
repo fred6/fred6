@@ -59,9 +59,6 @@ MathJax.Hub.Config({
                     </xsl:text>
                 </script>
                 <script>
-                    <xsl:attribute name="type">
-                        <xsl:value-of select="'text/javascript'"/>
-                    </xsl:attribute>
                     <xsl:attribute name="src">
                         <xsl:value-of select="'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'"/>
                     </xsl:attribute>
