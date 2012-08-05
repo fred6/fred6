@@ -9,13 +9,14 @@
         jax: ["input/TeX", "output/HTML-CSS"],
         extensions: ["tex2jax.js"],
         tex2jax: {
-            inlineMath: [ ['$', '$'] ],
-            displayMath: [ ['$$','$$'] ]
+            inlineMath: [ ['\\(', '\\)'] ],
+            displayMath: [ ['\\[','\\]'] ]
         },
     "HTML-CSS": { availableFonts: ["TeX"] }
     });
     </script>
-    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    <script type="text/javascript" 
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
