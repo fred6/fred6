@@ -1,4 +1,4 @@
-site_title = 'my site' 
+site_title = 'fred6'
 site_dir = 'site/'
 out_dir = 'out/'
 templates_dir = 'templates/'
