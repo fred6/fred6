@@ -1,6 +1,6 @@
 site_title = 'fred6'
 site_dir = 'site/'
-out_dir = 'out/'
+out_dir = 'out'
 templates_dir = 'templates/'
 pages_ext = '.md'
 page_format = 'markdown'
