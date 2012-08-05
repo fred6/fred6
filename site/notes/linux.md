@@ -19,33 +19,42 @@ This makes a simple bash prompt with color (blue), underline and absolute paths 
 ### ~/.bashrc
 Current full contents:
 
-    export PS1="\[\e[4;35m\]\u@\h \w \$\[\e[0m\] "
+    export PS1="\[\e[4;35m\]\u@\h \w \$\[\e[0m\]
+
+    export PATH=~/.cabal/bin:$PATH
+
+    function slob() {
+        python slob.py "$@"
+    }
+
+    function pseudo() {
+        python -m pseudoscience "$@"
+    }
 
 
 Same as for /etc/bash.bashrc, except the color here is purple. Used to distinguish between my user and root.
 
 
 ### ~/.bash_profile
-Simple as of yet:
+Simple:
 
-    sudo bash bin/wifi &
     startx
 
-bin/wifi is a script for connecting to the internet via wpa_supplicant and dhcpd
 
 ### ~/.xinitrc
 
     urxvtd &
 
-    setxkbmap carpalx -option caps:swapescape
+    setxkbmap carpalx -option caps:swapescape -option terminate:ctrl_alt_bksp
 
     xset r rate 200 25
+    xset b off
 
     sh ~/.fehbg &
     xrdb ~/.Xresources
-    spectrwm
+    xmonad
 
-Starts the urxvtd daemon, sets keyboard to my custom layout (see below) with caps and escape swapped, and finally starts the spectrwm tiling WM.
+Starts the urxvtd daemon, sets keyboard to my custom layout (see below) with caps and escape swapped, enables Ctrl+Alt+Backspace to kill X, key repeat rate increased, turns off horrible deafening bell, set up desktop background, source Xresources and start xmonad.
 
 
 ### /usr/share/X11/xkb/symbols/carpalx
@@ -121,60 +130,30 @@ I took the carpalx X11 keyboard setup available from carpalx website and modifie
     URxvt*termName:screen-256color
 
 
-### /etc/spectrwm.conf
-Here's the section that's different:
+### ~/.xmonad/xmonad.hs
 
-    color_unfocus       = rgb:ff/ff/ff
-    color_focus     = rgb:ff/00/7f
+I don't know Haskell but I cobbled this together using the internet. This depends on xmonad-contrib.
 
-    # bar settings
-    # bar_enabled       = 1
-    # bar_border_width  = 1
-    bar_border[1]       = rgb:ff/00/7f
-    bar_color[1]        = black
-    bar_font_color[1]   = rgb:c0/c0/c0
-    bar_font        = -*-profont-*-*-*-*-15-*-*-*-*-*-*-*
-    bar_action      = conky
-    # bar_delay     = 1
-    # bar_justify       = left
-    # bar_at_bottom     = 1
-    # stack_enabled     = 1
-     clock_enabled      = 0
-    # clock_format      = %Y %b %d %R %Z
-    # title_name_enabled    = 0
-    # title_class_enabled   = 0
-    # window_name_enabled   = 0
-    # verbose_layout        = 1
-    # focus_mode        = default
-    # disable_border        = 1
-    # border_width      = 1
-    # urgent_enabled        = 1
+    import Data.Map as M (fromList, union)
+    import XMonad
+    import XMonad.Actions.Search (google, wikipedia, scholar, promptSearch)
+    import XMonad.Prompt (greenXPConfig)
 
-    # spawn app
-    # program[term]     = urxvtc
-    # program[screenshot_all]   = screenshot.sh full
-    # program[screenshot_wind]  = screenshot.sh window
-    # program[lock]     = xlock
-    # program[initscr]  = initscreen.sh
-    # program[menu]     = dmenu_run -fn $bar_font -nb $bar_color -nf $bar_font_color -sb $bar_border -sf $bar_color
-    spawn_term      = urxvtc
-    # dialog box size ratio .3 >= r < 1
-    # dialog_ratio      = 0.6
+    main = xmonad $ defaultConfig
+        { borderWidth        = 1
+        , terminal           = "urxvtc"
+        , normalBorderColor  = "#000000"
+        , focusedBorderColor = "#cd8b00"
+        , modMask            = mod4Mask
+        , keys               = \c -> mykeys c `M.union` keys defaultConfig c }
+      where
+        mykeys (XConfig {XMonad.modMask = m}) = M.fromList $
+            [ ((m, xK_g), promptSearch greenXPConfig google)
+            , ((m, xK_w), promptSearch greenXPConfig wikipedia)
+            , ((m, xK_s), promptSearch greenXPConfig scholar)
+            ]
 
-Basically, terminal is urxvtc, bar_font is bigger (you need xfontsel to get the right format here), and some colors. 
 
-### /etc/conky/conky.conf
-
-    out_to_x no
-    background no
-    out_to_console yes
-    update_interval 2
-    total_run_times 0
-    use_spacer none
-    TEXT
-    ${time %R %d-%b-%Y}  Batt:${battery}  RAM:${memperc}%  CPU:${cpu cpu0}%  Wifi: ${wireless_essid wlan0} [${wireless_link_bar 5,10 wlan0}]
-
-In order to get ${battery} working, have to install acpi.
 
 ### .vimrc
 I use vim a lot. This is my current vimrc:
