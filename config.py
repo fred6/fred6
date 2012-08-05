@@ -11,6 +11,6 @@ templates['default_page'] = 'page_default'
 
 render_rules = {
     'blather/*': {'page_template': 'page_blather'},
-    'index': {'page_template': 'index_content'}
+    '/index': {'page_template': 'index_content'}
 }
 
