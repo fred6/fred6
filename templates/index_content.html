@@ -1,0 +1,17 @@
+<div id="index">
+    <ul>
+        {% for page in map.pages %}
+            <li><a href="{{ page }}.html">{{ page }}</a></li>
+        {% endfor %}
+    </ul>
+    {% for folder in map.folders %}
+        {% if folder == "notes" or folder == "blather" %}
+            <h1>{{ folder }}</h1>
+            <ul>
+                {% for page in map.folders[folder].content.pages %}
+                <li><a href="{{ map.folders[folder].content.pages[page].path }}{{ page }}.html">{{ page }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+</div>
