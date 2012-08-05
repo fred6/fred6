@@ -9,22 +9,20 @@ body a {
 }
 
 #page_title {
-    padding: 5px;
+    padding: 0px;
     font-size: 2em; 
     font-weight: normal;
 }
 
 
-#container {
-    width: 45em;
-}
-
 #container #nav {
-    width: 5em;
+    margin-left: 10px;
+    width: 80px;
     float: left;
 }
 
 #container #content {
-    width: 40em;
-    float: left;
+    margin-left: 90px;
+    padding-left: 1em;
+    max-width: 800px;
 }
