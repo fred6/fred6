@@ -10,18 +10,21 @@ body a {
 
 #page_title {
     padding: 5px;
-    background-color: #ff0000;
-    color: #fff;
-    font-size: 1em; 
+    font-size: 2em; 
     font-weight: normal;
-    text-align: center;
 }
 
-#page_title a {
-  color: #fff;
-}
 
 #container {
-    margin: 0 auto;
+    width: 45em;
+}
+
+#container #nav {
+    width: 5em;
+    float: left;
+}
+
+#container #content {
     width: 40em;
+    float: left;
 }
