@@ -9,8 +9,8 @@ templates = {}
 templates['default_layout'] = 'layout'
 templates['default_page'] = 'page_default'
 
-render_rules = {
-    '/blather/*': {'page_template': 'page_blather'},
-    '/index': {'page_template': 'index_content'}
-}
-
+r = [['/blather/*', 'page_router', {'page_template': 'page_blather'}],
+     ['/notes/*', 'page_router'],
+     ['/', 'index_router', {'page_template': 'index_content'}],
+     ['*.md', 'page_router'],
+     ['*.*', 'id_router']]
