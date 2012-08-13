@@ -192,6 +192,8 @@ I use vim a lot. This is my current vimrc:
     set nolist
     set showbreak
 
+    command DT r !date +\%Y\ \%b\ \%d\ \%H:\%M:\%S
+
 You also need to install the molokai theme into .vim/colors/
 
 ## flash sound (youtube)
