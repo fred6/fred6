@@ -13,5 +13,5 @@ templates['default_page'] = 'page_default'
 r = [('/blather/*', 'page_router', 'page_blather'),
      ('/notes/*', 'page_router'),
      ('/', 'index_router', 'index_content'),
-     ('*.md', 'page_router'),
+     ('/*', 'page_router'),
      ('*.*', 'id_router')]
