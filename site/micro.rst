@@ -2,6 +2,11 @@
 microblog
 =========
 
+Mon Aug 13 01:07:32 EDT 2012
+============================
+
+My experiences in writing complex CSS consist mostly of glomming together a bunch of things that don't do what I want and googling frantically until something works. The resulting clean up is basically a game of jenga where I remove "padding: 0"'s and the like until I have minimal working code again. CSS is the worst
+
 Sun Aug 12 23:40:22 EDT 2012
 ============================
 
@@ -10,7 +15,7 @@ Sun Aug 12 23:40:22 EDT 2012
 Sun Aug 12 22:05:07 EDT 2012
 ============================
 
-Here's an oldie but goodie: http://www.youtube.com/watch?v=oDdsCOEq8ZU
+Here's an oldie but goodie: `Squarepusher - I wish you could talk <http://www.youtube.com/watch?v=oDdsCOEq8ZU>`_
 
 Sun Aug 12 20:49:20 EDT 2012
 ============================
